@@ -38,7 +38,7 @@
         const situacao = document.querySelector("#situacao");
 
         const media = ((nota1 + nota2 + nota3) / 3)
-        document.querySelector("#calc").value = media;    //jogando no HTML, id calc
+        document.querySelector("#calc").value = media.toFixed(2);    //jogando no HTML, id calc
 
         if (nota1 <= 10 && nota2 <= 10 && nota3 <= 10) {
             if (media <= 5) {
