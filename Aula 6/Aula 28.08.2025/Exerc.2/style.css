@@ -1,0 +1,19 @@
+*{
+    padding: 0%;
+    margin: 0px;
+    text-decoration: none;
+}
+body{
+    background-color: black;
+    color: aquamarine;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+::placeholder{
+    background-color: black;
+    color: antiquewhite;
+}
+button{
+    border: none;
+    background-color: black;
+    color: aquamarine;
+}

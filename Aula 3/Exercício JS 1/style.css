@@ -1,0 +1,30 @@
+body{
+    background-color: black;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    color: aliceblue;
+}
+h1{
+    color: #4caf50;
+}
+label{
+    font-weight: bold;
+}
+input{
+    padding: 5px;
+    margin-top: 5px;
+}
+button{
+    padding: 8px 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+}
+button:hover{
+    background-color: #45a049;
+}
+#resulyado p{
+    margin: 8px 0;
+}
