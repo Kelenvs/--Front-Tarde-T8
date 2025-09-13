@@ -86,7 +86,12 @@ p {
     text-align: center;
     padding: 27px;
     color: white;
-    font-family: 'Times New Roman', Times, serif;
+    height: 75px;
+}
+
+i{
+    font-size: larger;
+    font-weight: bolder;
 }
 
 div>p:nth-child(1) {
@@ -97,6 +102,7 @@ div>p:nth-child(1) {
 #coluna1 {
     background-color: #944FE0;
     width: 350px;
+    font-size: 20px;
 }
 
 #coluna2 {

@@ -1,72 +1,129 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Cálculo de Dois Números</title>
 </head>
+
 <body>
     <main>
         <section id="container1">
             <div id="primeiradiv">
-                <span id="logo"><b>a+</b></span>
+                <span id="logo"><i class="bi bi-calculator"></i></span>
                 <span id="nome">Cálculo de Dois Números</span>
             </div>
             <div id="segundadiv">
                 <div>
                     <label for="text">Digite um número:</label>
-                    <input type="number" name="" id="">
+                    <input type="number" id="num1">
                 </div>
                 <div>
                     <label for="">Digite outro número:</label>
-                    <input type="number">
+                    <input type="number" id="num2">
                 </div>
-                <button>Calcular</button>
+                <button onclick="calcular()">Calcular</button>
             </div>
         </section>
         <section id="container2">
             <div id="coluna1">
                 <p>Funções</p>
-                <p>Soma</p>
-                <p>Subtração</p>
-                <p>Multiplicação</p>
-                <p>Divisão</p>
-                <p>Resto</p>
+                <p>Soma <i class="bi bi-plus-lg"></i></p>
+                <p>Subtração <i class="bi bi-dash-lg"></i></p>
+                <p>Multiplicação <i class="bi bi-x-lg"></i></p>
+                <p>Divisão <i class="bi bi-slash-lg"></i></p>
+                <p>Resto <i class="bi bi-percent"></i></p>
             </div>
             <div id="coluna2">
                 <p>Primeiro Número</p>
-                <p>2</p>
-                <p>3</p>
-                <p>4</p>
-                <p>5</p>
-                <p>6</p>
+                <p id="n1"></p>
+                <p id="n1"></p>
+                <p id="n1"></p>
+                <p id="n1"></p>
+                <p id="n1"></p>
             </div>
             <div id="coluna3">
                 <p>Segundo Número</p>
-                <p>2</p>
-                <p>3</p>
-                <p>4</p>
-                <p>5</p>
-                <p>6</p>
+                <p id="n2"> </p>
+                <p id="n2"> </p>
+                <p id="n2"> </p>
+                <p id="n2"> </p>
+                <p id="n2"> </p>
             </div>
             <div id="coluna4">
                 <p>Resultado</p>
-                <p>2</p>
-                <p>3</p>
-                <p>4</p>
-                <p>5</p>
-                <p>6</p>
+                <p id="soma"></p>
+                <p id="subt"></p>
+                <p id="multip"></p>
+                <p id="dividir"></p>
+                <p id="resto"></p>
             </div>
             <div id="coluna5">
                 <p>Situação</p>
-                <p>2</p>
-                <p>3</p>
-                <p>4</p>
-                <p>5</p>
-                <p>6</p>
+                <p id="resultsoma"><i></i></p>
+                <p id="resultsubt"></p>
+                <p id="resultmulti"></p>
+                <p id="resultdiv"></p>
+                <p id="resultresto"></p>
             </div>
         </section>
     </main>
 </body>
+
+
+<script>
+    function calcular() {
+
+        const num1 = document.querySelector("#num1").valueAsNumber;
+        const num2 = document.querySelector("#num2").valueAsNumber;
+
+        const n1 = document.querySelectorAll("#n1");    //colocar o num1 digitado pelo user na celula
+        const n2 = document.querySelectorAll("#n2");
+
+        const soma = document.querySelector("#soma");
+        const subt = document.querySelector("#subt");
+        const multip = document.querySelector("#multip");
+        const dividir = document.querySelector("#dividir");
+        const resto = document.querySelector("#resto");
+
+        const resultsoma = document.querySelector("#resultsoma");
+        const resultsubt = document.querySelector("#resultsubt");
+        const resultmulti = document.querySelector("#resultmulti");
+        const resultdiv = document.querySelector("#resultdiv");
+        const resultresto = document.querySelector("#resultresto");
+
+
+        if (isNaN(num1) || isNaN(num2)) {       //identifica o que nao é um numero, ex. caixa em branco; dá alerta
+            alert("Favor, digite um número.")
+            return
+        } else {
+
+            document.querySelector("#num1").value = " ";    //seleciona elemento e retorna campo vazio
+            document.querySelector("#num2").value = " ";
+
+            n1.forEach(caixa1 => {          //laço de repetição para listar os numero digitado pelo user na lista 
+                caixa1.textContent = `${num1}`;
+            })
+            n2.forEach(caixa2 => {
+                caixa2.textContent = `${num2}`;
+            })
+
+            soma.textContent = `${num1 + num2}`;
+            subt.textContent = `${num1 - num2}`;
+            multip.textContent = `${num1 * num2}`;
+            dividir.textContent = `${num1 / num2}`;
+            resto.textContent = `${num1 % num2}`;
+
+            resultsoma.textContent = (num1 + num2) % 2 == 0 ? ` ${num1 + num2} é PAR` : `${num1 + num2} é IMPAR`;
+            resultsubt.textContent = (num1 - num2) % 2 == 0 ? ` ${num1 - num2} é PAR` : `${num1 - num2} é IMPAR`;
+            resultmulti.textContent = (num1 * num2) % 2 == 0 ? ` ${num1 * num2} é PAR` : `${num1 * num2} é IMPAR`;
+            resultdiv.textContent = (num1 / num2) % 2 == 0 ? ` ${num1 / num2} é PAR` : `${num1 / num2} é IMPAR`;
+            resultresto.textContent= (num1 % num2) % 2 == 0 ? ` ${num1 % num2} é PAR` : `${num1 % num2} é IMPAR`;
+        }
+    }
+</script>
+
 </html>
